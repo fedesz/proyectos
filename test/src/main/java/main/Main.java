@@ -5,7 +5,7 @@ import modelos.Planeta;
 import modelos.SistemaSolar;
 
 public class Main {
-    public static Integer main(Integer cantidadDias) {
+    public static void main(String[] args) {
         int vecesAlineados = 0;
 
         Planeta alpha = new Planeta("Alpha", 1, 500);
@@ -14,8 +14,8 @@ public class Main {
 
         SistemaSolar sistemaSolar = new SistemaSolar(alpha, beta, gamma);
 
-        for (int i = 0; i < cantidadDias; i++) {
-            sistemaSolar.desplazarPlanetas(cantidadDias);
+        for (int i = 0; i < 1; i++) {
+            sistemaSolar.desplazarPlanetas(1);
             if (Recta.verificarAlineacionHorizontal(alpha, beta, gamma)) {
                 vecesAlineados++;
             } else if (Recta.verificarAlineacionVertical(alpha, beta, gamma)) {
@@ -24,7 +24,6 @@ public class Main {
                 vecesAlineados++;
             }
         }
-
-        return vecesAlineados;
+        System.out.println(vecesAlineados);
     }
 }

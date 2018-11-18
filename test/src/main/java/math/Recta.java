@@ -19,7 +19,7 @@ public class Recta {
     }
 
     public static Boolean verificarAlineacionVertical(Planeta alpha, Planeta beta, Planeta gamma) {
-        if (alpha.getPosicionX() == beta.getPosicionX() && alpha.getPosicionX() == gamma.getPosicionX()) {
+        if (Math.abs(alpha.getPosicionX()) == Math.abs(beta.getPosicionX()) && Math.abs(alpha.getPosicionX()) == (Math.abs(gamma.getPosicionX()))) {
             return true;
         } else {
             return false;
@@ -27,7 +27,7 @@ public class Recta {
     }
 
     public static Boolean verificarAlineacionHorizontal(Planeta alpha, Planeta beta, Planeta gamma) {
-        if (alpha.getPosicionY() == beta.getPosicionY() && alpha.getPosicionY() == gamma.getPosicionY()) {
+        if (Math.abs(alpha.getPosicionY()) == Math.abs(beta.getPosicionY()) && Math.abs(alpha.getPosicionY()) == (Math.abs(gamma.getPosicionY()))) {
             return true;
         } else {
             return false;
