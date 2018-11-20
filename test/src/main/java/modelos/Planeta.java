@@ -48,10 +48,10 @@ public class Planeta {
     }
 
     public void desplazarse(Integer cantidadDias) {
-        Double seno = Math.sin(velocidadAngular * cantidadDias);
+        Double seno = Math.sin(Math.toRadians(velocidadAngular * cantidadDias));
         posicionY = posicionX * seno.doubleValue();
 
-        Double coseno = Math.cos(velocidadAngular * cantidadDias);
+        Double coseno = Math.cos(Math.toRadians(velocidadAngular * cantidadDias));
         posicionX = distanciaDelSol + (posicionX * coseno.doubleValue());
     }
 }

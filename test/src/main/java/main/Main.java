@@ -14,8 +14,8 @@ public class Main {
 
         SistemaSolar sistemaSolar = new SistemaSolar(alpha, beta, gamma);
 
-        for (int i = 0; i < 1; i++) {
-            sistemaSolar.desplazarPlanetas(1);
+        for (int i = 0; i < 90; i++) {
+            sistemaSolar.desplazarPlanetas(90);
             if (Recta.verificarAlineacionHorizontal(alpha, beta, gamma)) {
                 vecesAlineados++;
             } else if (Recta.verificarAlineacionVertical(alpha, beta, gamma)) {
