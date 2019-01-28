@@ -1,18 +1,20 @@
 package modelos;
 
+import java.text.DecimalFormat;
+
 public class Planeta {
     private String nombre;
-    private Integer velocidadAngular;
-    private Integer distanciaDelSol;
-    private Double posicionX;
-    private Double posicionY;
+    private Decimal velocidadAngular;
+    private Decimal distanciaDelSol;
+    private Decimal posicionX;
+    private Decimal posicionY;
 
-    public Planeta(String nombre, Integer velocidadAngular, Integer distanciaDelSol) {
+    public Planeta(String nombre, Decimal velocidadAngular, Decimal distanciaDelSol) {
         this.nombre = nombre;
         this.velocidadAngular = velocidadAngular;
         this.distanciaDelSol = distanciaDelSol;
         this.posicionX = distanciaDelSol.doubleValue();
-        this.posicionY = 0.00;
+        this.posicionY = 0.0;
     }
 
     public String getNombre() {
@@ -23,35 +25,48 @@ public class Planeta {
         this.nombre = nombre;
     }
 
-    public Integer getVelocidadAngular() {
+    public Decimal getVelocidadAngular() {
         return velocidadAngular;
     }
 
-    public void setVelocidadAngular(Integer velocidadAngular) {
+    public void setVelocidadAngular(Decimal velocidadAngular) {
         this.velocidadAngular = velocidadAngular;
     }
 
-    public Double getPosicionX() {
+    public Decimal getPosicionX() {
         return posicionX;
     }
 
-    public void setPosicionX(Double posicionX) {
+    public void setPosicionX(Decimal posicionX) {
         this.posicionX = posicionX;
     }
 
-    public Double getPosicionY() {
+    public Decimal getPosicionY() {
         return posicionY;
     }
 
-    public void setPosicionY(Double posicionY) {
+    public void setPosicionY(Decimal posicionY) {
         this.posicionY = posicionY;
     }
 
     public void desplazarse(Integer cantidadDias) {
-        Double seno = Math.sin(Math.toRadians(velocidadAngular * cantidadDias));
-        posicionY = posicionX * seno.doubleValue();
+        DecimalFormat numberFormat = new DecimalFormat("#,00");
+        if (velocidadAngular < 0) {
+            Decimal seno = Math.sin(360 - (velocidadAngular * cantidadDias));
+            seno = numberFormat.format(seno.doubleValue());
+            posicionY = numberFormat.format(posicionY = distanciaDelSol * seno));
 
-        Double coseno = Math.cos(Math.toRadians(velocidadAngular * cantidadDias));
-        posicionX = distanciaDelSol + (posicionX * coseno.doubleValue());
+            Decimal coseno = Math.cos(360 - (velocidadAngular * cantidadDias));
+            coseno = numberFormat.format(coseno.doubleValue());
+            posicionX = numberFormat.format(distanciaDelSol + (distanciaDelSol * coseno.doubleValue()));
+        } else {
+            Decimal seno = Math.sin(velocidadAngular * cantidadDias);
+            seno = numberFormat.format(seno);
+            posicionY = numberFormat.format(distanciaDelSol * seno);
+
+            Decimal coseno = Math.cos(velocidadAngular * cantidadDias);
+            coseno = numberFormat.format(coseno.doubleValue());
+            posicionX = numberFormat.format(distanciaDelSol + (distanciaDelSol * coseno.doubleValue()));
+        }
     }
 }

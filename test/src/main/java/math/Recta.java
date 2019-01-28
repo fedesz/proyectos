@@ -6,7 +6,10 @@ public class Recta {
     public static Boolean verificarAlineacion(Planeta alpha, Planeta beta, Planeta gamma) {
         Double m1 = calcularPendiente(alpha.getPosicionX(), alpha.getPosicionY(), beta.getPosicionX(), beta.getPosicionY());
         Double m2 = calcularPendiente(alpha.getPosicionX(), alpha.getPosicionY(), gamma.getPosicionX(), gamma.getPosicionY());
+        Double m3 = calcularPendiente(alpha.getPosicionX(), alpha.getPosicionY(), 0.0, 0.0);
         if (m1 == m2) {
+            return true;
+        } else if (m2 == m3) {
             return true;
         } else {
             return false;
