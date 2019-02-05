@@ -14,16 +14,16 @@ public class Main {
 
         SistemaSolar sistemaSolar = new SistemaSolar(alpha, beta, gamma);
 
-//        for (int i = 0; i < 90; i++) {
-        sistemaSolar.desplazarPlanetas(90);
-        if (Recta.verificarAlineacionHorizontal(alpha, beta, gamma)) {
-            vecesAlineados++;
-        } else if (Recta.verificarAlineacionVertical(alpha, beta, gamma)) {
-            vecesAlineados++;
-        } else if(Recta.verificarAlineacion(alpha, beta, gamma)){
-            vecesAlineados++;
+        for (int i = 0; i < 90; i++) {
+            sistemaSolar.desplazarPlanetas(i);
+            if (Recta.verificarAlineacionHorizontal(alpha, beta, gamma)) {
+                vecesAlineados++;
+            } else if (Recta.verificarAlineacionVertical(alpha, beta, gamma)) {
+                vecesAlineados++;
+            } else if (Recta.verificarAlineacion(alpha, beta, gamma)) {
+                vecesAlineados++;
+            }
         }
-//        }
         System.out.println(vecesAlineados);
     }
 }

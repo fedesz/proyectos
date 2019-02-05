@@ -11,13 +11,12 @@ public class PlanetaTest {
     public void desplazarPlanetaCorrectamenteEnX() {
         Planeta alpha = new Planeta("Alpha", 1.0, 500.0);
         alpha.desplazarse(1);
-        Long numeroEsperadoRedondeado = Math.round(770.1511529340698);
-        assertEquals(770.1511529340698, alpha.getPosicionX(), 0.01);
+        assertEquals(1000, alpha.getPosicionX(), 0.01);
     }
     @Test
     public void desplazarPlanetaCorrectamenteEnY() {
         Planeta alpha = new Planeta("Alpha", 1.0, 500.0);
         alpha.desplazarse(1);
-        assertEquals(420.73549240394823, alpha.getPosicionY(), 0.01);
+        assertEquals(10, alpha.getPosicionY(), 0.01);
     }
 }
