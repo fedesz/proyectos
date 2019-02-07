@@ -4,6 +4,8 @@ import math.Recta;
 import models.Planeta;
 import models.SistemaSolar;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         int vecesAlineados = 0;
@@ -13,8 +15,9 @@ public class Main {
         Planeta gamma = new Planeta("Gamma", -5.00, 1000.00);
 
         SistemaSolar sistemaSolar = new SistemaSolar(alpha, beta, gamma);
-
-        for (int i = 0; i < 90; i++) {
+        Scanner scanner = new Scanner(System.in);
+        int dias = scanner.nextInt();
+        for (int i = 0; i < dias; i++) {
             sistemaSolar.desplazarPlanetas(i);
             if (Recta.verificarAlineacionHorizontal(alpha, beta, gamma)) {
                 vecesAlineados++;
